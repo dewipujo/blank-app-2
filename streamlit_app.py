@@ -10,9 +10,27 @@ st.title("🧪 Kalkulator pH & pOH Larutan")
 st.write("""
 Aplikasi ini membantu menghitung nilai pH dan pOH larutan berdasarkan input konsentrasi ion [H⁺] atau [OH⁻].
 """)
-st.write_stream("""
+teks="""
 Aplikasi ini membantu menghitung nilai pH dan pOH larutan berdasarkan input konsentrasi ion [H⁺] atau [OH⁻].
-""")
+"""
+def stream_data():
+    for word in teks.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
+    yield pd.DataFrame(
+        np.random.randn(5, 10),
+        columns=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
+    )
+
+    for word in teks.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
+
+if st.button("Stream data"):
+    st.write_stream(stream_data)
+
 
 # Sidebar for input
 with st.sidebar:
