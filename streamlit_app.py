@@ -27,8 +27,6 @@ def stream_data():
         yield word + " "
         time.sleep(0.02)
 
-
-if st.button("Stream data"):
     st.write_stream(stream_data)
 
 
